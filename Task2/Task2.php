@@ -60,7 +60,6 @@ $users = [
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -74,7 +73,6 @@ $users = [
         </thead>
         <tbody>
             <?php foreach($users AS $user) { ?>
-
             <tr>
                 <?php foreach($user AS $value) {?>
                 <td><?php 
@@ -82,8 +80,6 @@ $users = [
                     $test_string="string";
                     $test_arr=[];
                     $test_obj=(object)[];
-                    $found = false;
-
                     if(gettype($test_int)==gettype($value) ||gettype($test_string)==gettype($value)){
                         echo $value;
                     }elseif(gettype($test_arr)==gettype($value)){
@@ -91,23 +87,20 @@ $users = [
                             echo " {$values} <br> ";
                         }
                     } elseif(gettype($test_obj)==gettype($value)){
-                        foreach($value AS $values){
-                              if($user->gender->gender =="f"){
-                                $found = true;
-                            }
+                        foreach($value AS $property=>$values){
+                            if( $property!=="gender")echo " {$values} <br> ";
+                            elseif($user->gender->gender=="f")echo "female";
+                            elseif($user->gender->gender=="m")echo "male";
                         } 
-                        if($found){
-                            echo "female";
-                        }else{
-                            echo "male";
-                         }
+                        
                     }        
-                        ?></td>
+                        ?>
+                </td>
                 <?php } ?>
 
             </tr>
 
-                 <?php } ?>
+            <?php } ?>
 
         </tbody>
     </table>
