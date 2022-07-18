@@ -13,8 +13,9 @@ if($_SERVER['REQUEST_METHOD']=="POST" && !empty($_POST)){
 
     }
     if(empty($errors)){
+        $_SESSION['name']=$_POST['name'];
         $_SESSION['member']=$_POST['member'];
-        header('location:Games.php');
+        header('location:hh.php');
                 die;
     }
 }
