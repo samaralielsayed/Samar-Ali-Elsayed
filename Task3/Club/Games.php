@@ -8,8 +8,9 @@ $club=[
 if($_SERVER['REQUEST_METHOD']=="POST" && !empty($_POST)){
     
    header('location:Result.php');
- 
-  
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";die;
 }
 
 $arrpostbool=array();
@@ -60,7 +61,7 @@ $arrChooseOfGame=array();
         }
         
         if(isset($_POST['member'.$i])){
-        $arrayChooseOfGames[$_POST['member'.$i]]=$_POST["na".$i."_me"];
+        $arrayChooseOfGames[$_POST['member'.$i]]=$_POST["na".$i."_me"] ?? [];
         $_SESSION['arrayChooseOfGames']=$arrayChooseOfGames;
     }
        

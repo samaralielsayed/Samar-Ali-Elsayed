@@ -13,14 +13,16 @@ $table = "<table class='table'>
    </tr>
  </thead>
  <tbody>";
- 
+
  $df=array();
  //echo array_sum($_SESSION['arrayChooseOfGames']['gg']);
      foreach($_SESSION['arrayChooseOfGames'] as $nameMemberKey => $nameMemberValue){
+        
         $table .=    "<tr>";
         $table .="<td>{$nameMemberKey}</td>";
         if(isset($nameMemberValue)){
         foreach($nameMemberValue AS $nameChooseOfGamesKey => $nameChooseOfGamesValue){
+
             if($nameChooseOfGamesValue==300){
                 $table .="<td >Football</td>";
             }else if($nameChooseOfGamesValue==250){
@@ -33,12 +35,8 @@ $table = "<table class='table'>
            // $df[$nameMemberKey]=array_search(300,$_SESSION['arrayChooseOfGames'][$nameChooseOfGamesValue]);
 
             }
-                if(empty($_SESSION['arrayChooseOfGames'][$nameMemberKey])){
-                    $table .="<td>0</td>";
+            $table .="<td colspan=10 class='text-right'>".array_sum($_SESSION['arrayChooseOfGames'][$nameMemberKey]) ." EGP</td>";
 
-                }else $table .="<td>".array_sum($_SESSION['arrayChooseOfGames'][$nameMemberKey])."</td>";
-            
-            
             
         }
        
